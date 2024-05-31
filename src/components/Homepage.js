@@ -2,6 +2,7 @@ import logo from './../images/logo.png';
 import plumber from './../images/plumber.png';
 import tradestamp from './../images/tradestamp.png';
 import services from './../images/services.jpeg';
+import footerimage from './../images/footer-image.png';
 import React, { useState, useEffect } from 'react';
 
 function Homepage() {
@@ -9,6 +10,7 @@ function Homepage() {
   const [modalDisplay, setModalDisplay] = useState("hidden");
   const [activeMenuItem, setActiveMenuItem] = useState("ourservices");
   const [activeServicesItem, setactiveServicesItem] = useState("burstpiperepair");
+  const [activeFaq, setActiveFaq] = useState("faq2");
 
   function onBurgerMenuClicked(){
     document.querySelector("#modal").style.animationName = "slideIn";
@@ -121,6 +123,49 @@ function Homepage() {
     menuItemUnderline.classList.remove("hidden");
     
     setActiveMenuItem(menuItemId);
+  }
+
+  function onFaqClicked(faqId) {
+
+    let faqelm, faqanswer, faqicon;
+
+    if (activeFaq) {
+      faqelm = document.getElementById(activeFaq);
+      faqanswer = faqelm.getElementsByClassName("faqanswer")[0];
+      faqicon = faqelm.getElementsByClassName("faqicon")[0];
+
+      if (faqelm.classList.contains("bg-[#EBF3F9]")) {
+        faqanswer.classList.add("hidden");
+        faqicon.innerHTML = "+";
+        faqelm.classList.remove("bg-[#EBF3F9]");
+      } else {
+        faqanswer.classList.remove("hidden");
+        faqicon.innerHTML = "-";
+        faqelm.classList.add("bg-[#EBF3F9]");
+      }
+    }
+
+    if (activeFaq == faqId) {
+      setActiveFaq("");
+    } else {
+      setActiveFaq(faqId);
+
+      faqelm = document.getElementById(faqId);
+      faqanswer = faqelm.getElementsByClassName("faqanswer")[0];
+      faqicon = faqelm.getElementsByClassName("faqicon")[0];
+
+      if (faqelm.classList.contains("bg-[#EBF3F9]")) {
+        faqanswer.classList.add("hidden");
+        faqicon.innerHTML = "+";
+        faqelm.classList.remove("bg-[#EBF3F9]");
+      } else {
+        faqanswer.classList.remove("hidden");
+        faqicon.innerHTML = "-";
+        faqelm.classList.add("bg-[#EBF3F9]");
+      }
+
+    }
+
   }
 
   useEffect(() => {
@@ -367,26 +412,18 @@ function Homepage() {
               <img src={tradestamp} width="63"/>
             </div>
           </div>
-          <div className="flex p-[25px] border-solid border-[1px] rounded-[24px] justify-around w-fit">
+          <div className="flex p-[25px] rounded-[24px] justify-around w-fit bg-[#FFFAEA] min-[440px]:w-[397px]">
             <div className="text-left w-[60%]">
-              <div className="text-[20px] font-medium mb-[10px]">
-                Coupons and Deals
+              <div className="text-[14px] font-normal">
+                Great service! Professional, responded in a timely manner. I would definitely use this company again.
               </div>
-              <div className="text-[12px] text-[#5E6B78] mb-[20px]">
-                Get $25 Off Drain & Plumbing Camera Inspections
-              </div>
-              <div className="text-[14px] font-semibold text-[#0064B1] flex items-center cursor-pointer w-max">
-                View more offers
-                <svg className="mt-[2px] ml-[8px]" width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 9L6 5L1 1" stroke="#0064B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <div className="font-medium text-[16px] mt-[12px]">
+                Cynthia Buchanan 
               </div>
             </div>
-            <div className="p-[20px] h-fit bg-[#E1FFC3] rounded-[50%] w-fit">
-              <svg className="" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.1526 3.06781L3.06784 20.1526" stroke="#4F7B23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M4.89832 7.94917C6.58326 7.94917 7.94917 6.58326 7.94917 4.89832C7.94917 3.21338 6.58326 1.84747 4.89832 1.84747C3.21338 1.84747 1.84747 3.21338 1.84747 4.89832C1.84747 6.58326 3.21338 7.94917 4.89832 7.94917Z" stroke="#4F7B23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18.3221 21.3729C20.007 21.3729 21.3729 20.007 21.3729 18.322C21.3729 16.6371 20.007 15.2712 18.3221 15.2712C16.6371 15.2712 15.2712 16.6371 15.2712 18.322C15.2712 20.007 16.6371 21.3729 18.3221 21.3729Z" stroke="#4F7B23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <div className="p-[20px] h-fit bg-[#FFF2C3] rounded-[50%] w-fit">
+              <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.4169 18.0434V11.9518C13.4169 9.38153 13.6996 7.14538 14.2651 5.24337C14.8305 3.34137 15.7044 1.59357 16.8867 0H22.5157C21.2305 1.64498 20.2281 3.34136 19.5084 5.08916C18.7888 6.78554 18.4289 8.37912 18.4289 9.86988H22.4386V18.0434H13.4169ZM0 18.0434V11.9518C0 9.43293 0.257028 7.22249 0.771084 5.32048C1.33655 3.36707 2.21044 1.59357 3.39277 0H9.09879C7.81365 1.64498 6.81124 3.34136 6.09157 5.08916C5.37189 6.78554 5.01205 8.37912 5.01205 9.86988H9.02169V18.0434H0Z" fill="#776628"/>
               </svg>
             </div>
           </div>
@@ -445,9 +482,9 @@ function Homepage() {
               <li className="my-[10px]">Our team of plumbers will arrive on the scene within an hour to assess the situation and provide a quote.</li>
               <li className="xl:w-[800px]">We'll get work with water leak detection, drain unclogging, sewer line repair, or any other plumbing service you need in Boca Raton, Fort Lauderdale, and throughout Broward County.</li>
             </ol>
-            <div className="flex items-center">
-              <div className="bg-[#091119] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px]">Call 954-516-7777</div>
-              <div className="flex items-center cursor-pointer ml-[30px] text-[#FFFFFF] font-medium">
+            <div className="min-[600px]:flex block items-center">
+              <div className="bg-[#091119] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Call 954-516-7777</div>
+              <div className="flex items-center cursor-pointer min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]">
                 Schedule an Appointment
                 <svg className="mt-[2px] ml-[10px]" width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L6 5L1 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -462,7 +499,7 @@ function Homepage() {
         <div className="min-[1500px]:w-[1500px] w-[100%] mx-auto px-[20px] md:px-[50px]">
           <div className="pt-[100px] font-medium text-[40px] leading-[54px] lg:w-[800px] mx-auto">Our Emergency Residential and Commercial Plumbing Services</div>
           <div className="md:flex justify-between mt-[100px]">
-            <div className="w-[350px] mx-auto">
+            <div className="min-[400px]:w-[350px] mx-auto">
               <div className="services" id="burstpiperepair">
                 <div className="flex items-center justify-between cursor-pointer" onClick={() => onServiceClicked("burstpiperepair")}>
                   <div className="font-semibold text-[18px]">Burst Pipe Repair</div>
@@ -524,23 +561,58 @@ function Homepage() {
         </div>
       </div>
 
-      <div className="w-[100%] bg-[#FFFFFF] h-[1000px]">
+      <div className="w-[100%] bg-[#FFFFFF]">
         <div className="min-[800px]:w-[800px] w-[100%] mx-auto px-[20px] md:px-[50px]">
           <div className="font-medium text-[40px] my-[100px]">Emergency Plumbing FAQs</div>
           <div>
-            <div>
+            <div id="faq1" className="px-[30px] py-[20px] rounded-[12px] text-left cursor-pointer faq" onClick={() => onFaqClicked('faq1')}>
               <div className="flex justify-between font-medium text-[18px]">
-                <div className="">How do I lower my plumbing pressure?</div>
-                <div>+</div>
+                <div className="faqquestion">How do I lower my plumbing pressure?</div>
+                <div className="faqicon">+</div>
               </div>
-              <div>
+              <div className="mt-[20px] w-[90%] hidden faqanswer"> 
+                In hot climates, pipes can burst due to excessive heat, which can cause the pipes to expand and contract. Pipes exposed to direct sunlight or located in improperly ventilated areas can be particularly susceptible to bursting. Additionally, high water pressure can also contribute to burst pipes in hot climates. It's important to have your pipes regularly inspected and maintained by a professional to prevent any potential issues.
               </div>
             </div>
 
-            <div>
+            <div id="faq2" className="px-[30px] py-[20px] rounded-[12px] text-left bg-[#EBF3F9] cursor-pointer faq" onClick={() => onFaqClicked('faq2')}>
+              <div className="flex justify-between font-medium text-[18px]">
+                <div className="faqquestion">Where do pipes usually burst?</div>
+                <div className="faqicon">-</div>
+              </div>
+              <div className="mt-[20px] w-[90%] faqanswer"> 
+                In hot climates, pipes can burst due to excessive heat, which can cause the pipes to expand and contract. Pipes exposed to direct sunlight or located in improperly ventilated areas can be particularly susceptible to bursting. Additionally, high water pressure can also contribute to burst pipes in hot climates. It's important to have your pipes regularly inspected and maintained by a professional to prevent any potential issues.
+              </div>
             </div>
             
-            <div>
+            <div id="faq3" className="px-[30px] py-[20px] rounded-[12px] text-left cursor-pointer faq" onClick={() => onFaqClicked('faq3')}>
+              <div className="flex justify-between font-medium text-[18px]">
+                <div className="faqquestion">How do you prevent emergency plumbing?</div>
+                <div className="faqicon">+</div>
+              </div>
+              <div className="text-left mt-[20px] w-[90%] hidden faqanswer"> 
+                In hot climates, pipes can burst due to excessive heat, which can cause the pipes to expand and contract. Pipes exposed to direct sunlight or located in improperly ventilated areas can be particularly susceptible to bursting. Additionally, high water pressure can also contribute to burst pipes in hot climates. It's important to have your pipes regularly inspected and maintained by a professional to prevent any potential issues.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-[100%] bg-[#091119] pb-[100px] mt-[50px] pt-[100px]">
+        <div className="min-[1500px]:w-[1500px] w-[100%] mx-auto px-[20px] md:px-[50px] text-[#FFFFFF]">
+          <div className="flex justify-between items-center">
+            <div className="">
+              <div className="text-[40px] font-medium text-left leading-[54px]">Trusted by over 5000+ clients</div>
+              <div className="font-normal mt-[40px] text-left">Fix it today and take time to pay and get benefited by our coupons and deals.</div>
+              <div className="min-[600px]:flex block items-center mt-[50px]">
+                <div className="bg-[#0064B1] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Schedule an Appointment</div>
+                <div className="flex items-center min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]">
+                  Call <span className="cursor-pointer text-[#0064B1] ml-[10px]">954-516-7777</span>
+                </div>
+              </div>
+            </div>
+            <div className="ml-[30px] hidden lg:block">
+              <img src={footerimage} />
             </div>
           </div>
         </div>
@@ -551,22 +623,3 @@ function Homepage() {
 }
 
 export default Homepage;
-
-
-
-
-
-
-
-// Call Broward Plumbing for 24-hour service.
-// Our team of plumbers will arrive on the scene within an hour to assess the situation and provide a quote. 
-// We'll get work with water leak detection, drain unclogging, sewer line repair, or any other plumbing service you need in Boca Raton, Fort Lauderdale, and throughout Broward County.
-
-
-
-
-
-
-
-
-
