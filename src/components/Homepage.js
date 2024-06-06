@@ -11,6 +11,8 @@ function Homepage() {
   const [activeMenuItem, setActiveMenuItem] = useState("ourservices");
   const [activeServicesItem, setactiveServicesItem] = useState("burstpiperepair");
   const [activeFaq, setActiveFaq] = useState("faq2");
+  const [activeTestimonial, setActiveTestimonial] = useState(1);
+  const [translateX, setTranslateX] = useState(0);
 
   function onBurgerMenuClicked(){
     document.querySelector("#modal").style.animationName = "slideIn";
@@ -168,6 +170,50 @@ function Homepage() {
 
   }
 
+  function scrollTestimonial(direction) {
+    let testimonialContainerFixed = document.getElementById("testimonialContainerFixed");
+    let testimonialContainerParent = document.getElementById("testimonialContainerParent");
+    let testimonial = document.getElementsByClassName("testimonial")[0];
+    let testimonialIndex = document.getElementsByClassName("testimonialIndex");
+
+    let transformValue;
+    let translateXValue;
+
+    if (direction == "initialLeft") {
+
+      translateXValue = ( ( (testimonialContainerFixed.clientWidth ) - ( (testimonial.clientWidth * 3) + (2 * 20)) ) / 2 );
+      transformValue = `translateX(${translateXValue}px)`;
+      setTranslateX(translateXValue);
+
+    } else if (direction == "left" && activeTestimonial > 0) {
+
+      translateXValue = translateX + testimonial.clientWidth;
+      transformValue = `translateX(${translateXValue}px)`;
+      setTranslateX(translateXValue);
+
+      setTimeout(function(){
+        testimonialIndex[activeTestimonial].children[0].setAttribute("fill", "#EBF3F9");
+        testimonialIndex[activeTestimonial - 1].children[0].setAttribute("fill", "#0064B1");
+        setActiveTestimonial(activeTestimonial - 1);
+      }, 500);
+
+    } else if (direction == "right" && activeTestimonial < 3) {
+
+      translateXValue = translateX - testimonial.clientWidth;
+      transformValue = `translateX(${translateXValue}px)`;
+      setTranslateX(translateXValue);
+
+      setTimeout(function(){
+        testimonialIndex[activeTestimonial].children[0].setAttribute("fill", "#EBF3F9");
+        testimonialIndex[activeTestimonial + 1].children[0].setAttribute("fill", "#0064B1");
+        setActiveTestimonial(activeTestimonial + 1);
+      }, 500);
+
+    }
+
+    testimonialContainerParent.style.transform = transformValue;
+  }
+
   useEffect(() => {
     let activeService = document.getElementById(activeServicesItem);
 
@@ -177,6 +223,11 @@ function Homepage() {
         servicesIcon[0].style.rotate = "180deg"
       }
     }
+
+    if (translateX == 0) {
+      scrollTestimonial("initialLeft");
+    }
+
   });
 
   return (
@@ -218,7 +269,7 @@ function Homepage() {
       </div>
 
       {/*Banner*/}
-      <div className="w-[100%] h-[100px] bg-[#000000] text-[#8e97a1] text-[14px] font-normal flex top-[0px] sticky z-[1]">
+      <div className="w-[100%] h-[80px] bg-[#000000] text-[#8e97a1] text-[14px] font-normal flex top-[0px] sticky z-[1]">
         <div className="flex justify-between max-[1000px]:justify-end w-[1500px] mx-auto items-center md:px-[50px] px-[20px]">
           <div className="max-[1000px]:hidden">
             Currently Serving Broward County & Southern Florida Areas
@@ -247,7 +298,7 @@ function Homepage() {
           <div>
             <img src={logo} width="200px" />
           </div>
-          <div className="flex items-center max-[1050px]:hidden">
+          <div className="flex items-center max-[1050px]:hidden hidden">
             <div id="home" className="mr-[50px] cursor-pointer" onClick={() => onMenuItemClicked('home')}>
               <div className="hover:text-[#0064B1] menuItem">Home</div>
               <div className="h-[2px] w-[100%] bg-[#0064B1] mt-[5px] hidden menuItemUnderline"></div>
@@ -280,7 +331,7 @@ function Homepage() {
               </svg>
             </div>
             <div className="ml-[20px] bg-[#000000] text-[#FFFFFF] px-[16px] py-[12px] rounded-[8px] cursor-pointer">Contact Us</div>
-            <div className="border-[#000000] border-[2px] border-solid p-[5px] rounded-[5px] min-[1051px]:hidden cursor-pointer ml-[20px]" onClick={onBurgerMenuClicked}>
+            <div className="border-[#000000] border-[2px] border-solid p-[5px] rounded-[5px] min-[1051px]:hidden hidden cursor-pointer ml-[20px]" onClick={onBurgerMenuClicked}>
               <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
@@ -295,7 +346,7 @@ function Homepage() {
       <div className="mt-[50px] w-[100%]">
         <div className="min-[1500px]:w-[1500px] w-[100%] flex mx-auto px-[20px] md:px-[50px]">
           <div className="">
-            <div className="flex text-[#5E6B78] text-[14px] items-center leading-[21px] border-solid border-[1px] border-[#EBF3F9] px-[16px] py-[8px] rounded-[8px] w-max">
+            <div className="hidden flex text-[#5E6B78] text-[14px] items-center leading-[21px] border-solid border-[1px] border-[#EBF3F9] px-[16px] py-[8px] rounded-[8px] w-max">
               <span>Plumbing Services</span>
               <svg className="mt-[3px] ml-[10px]" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 6L9 1" stroke="#5E6B78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -561,9 +612,91 @@ function Homepage() {
         </div>
       </div>
 
+      <div className="w-[100%] bg-[#FFFFFF] tracking-[1px]">
+        <div className="min-[1500px]:w-[1500px] w-[100%] mx-auto px-[20px] md:px-[50px]">
+          <div id="testimonialContainerFixed" className="overflow-hidden">
+            <div className="text-[40px] font-medium pt-[80px]">What Our Customers Say</div>
+            <div id="testimonialContainerParent" className="flex w-[800%]" style={{
+              transition: 'transform 0.5s ease-in-out'
+            }}>
+                <div className="bg-[#8ADCFF] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                  <div className="">
+                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
+                  </div>
+                  <div className="mt-[20px]">
+                    <span className="font-semibold">Service used:</span> Toilet Repair
+                  </div>
+                  <div className="text-[24px] font-semibold mt-[30px]">
+                    Rain Hickey
+                  </div>
+                </div>
+                <div className="bg-[#FFDF73] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                  <div className="">
+                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
+                  </div>
+                  <div className="mt-[20px]">
+                    <span className="font-semibold">Service used:</span> Toilet Repair
+                  </div>
+                  <div className="text-[24px] font-semibold mt-[30px]">
+                    Rain Hickey
+                  </div>
+                </div>
+                <div className="bg-[#E0FF88] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                  <div className="">
+                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
+                  </div>
+                  <div className="mt-[20px]">
+                    <span className="font-semibold">Service used:</span> Toilet Repair
+                  </div>
+                  <div className="text-[24px] font-semibold mt-[30px]">
+                    Rain Hickey
+                  </div>
+                </div>
+                <div className="bg-[#8ADCFF] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                  <div className="">
+                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
+                  </div>
+                  <div className="mt-[20px]">
+                    <span className="font-semibold">Service used:</span> Toilet Repair
+                  </div>
+                  <div className="text-[24px] font-semibold mt-[30px]">
+                    Rain Hickey
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div className="mt-[50px] flex items-center justify-center">
+            <div className="bg-[#EBF3F9] p-[15px] rounded-[50%] w-fit cursor-pointer" onClick={() => scrollTestimonial("left")}>
+              <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 9L1 5L6 1" stroke="#0064B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div className="flex mx-[30px]">
+              <svg className="mr-[10px] testimonialIndex" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="5" cy="5" r="5" fill="#EBF3F9"/>
+              </svg>
+              <svg className="mr-[10px] testimonialIndex" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="5" cy="5" r="5" fill="#0064B1"/>
+              </svg>
+              <svg className="mr-[10px] testimonialIndex" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="5" cy="5" r="5" fill="#EBF3F9"/>
+              </svg>
+              <svg className="testimonialIndex" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="5" cy="5" r="5" fill="#EBF3F9"/>
+              </svg>
+            </div>
+            <div className="bg-[#EBF3F9] p-[15px] rounded-[50%] w-fit cursor-pointer" onClick={() => scrollTestimonial("right")}>
+              <svg className="mt-[2px] ml-[3px]" width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 9L6 5L1 1" stroke="#0064B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="w-[100%] bg-[#FFFFFF]">
         <div className="min-[800px]:w-[800px] w-[100%] mx-auto px-[20px] md:px-[50px]">
-          <div className="font-medium text-[40px] my-[100px]">Emergency Plumbing FAQs</div>
+          <div className="font-medium text-[40px] mb-[70px] my-[80px]">Emergency Plumbing FAQs</div>
           <div>
             <div id="faq1" className="px-[30px] py-[20px] rounded-[12px] text-left cursor-pointer faq" onClick={() => onFaqClicked('faq1')}>
               <div className="flex justify-between font-medium text-[18px]">
