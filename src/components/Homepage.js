@@ -398,7 +398,7 @@ function Homepage() {
         </div>
 
         <div className="min-[1500px]:w-[1500px] w-[100%] min-[1200px]:flex mx-auto px-[20px] md:px-[50px] justify-between mt-[50px]">
-          <div className="flex p-[25px] border-solid border-[1px] rounded-[24px] justify-around w-fit">
+          <div className="flex p-[25px] border-solid border-[1px] rounded-[24px] justify-around w-fit min-[440px]:w-[397px]">
             <div className="text-left w-[60%]">
               <div className="text-[20px] font-medium mb-[10px]">
                 Coupons and Deals
