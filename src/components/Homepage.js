@@ -2,7 +2,7 @@ import logo from './../images/logo.png';
 import plumber from './../images/plumber.png';
 import tradestamp from './../images/tradestamp.png';
 import services from './../images/services.jpeg';
-import footerimage from './../images/footer-image.png';
+import footerimage from './../images/footer-image.jpeg';
 import React, { useState, useEffect } from 'react';
 
 function Homepage() {
@@ -85,9 +85,7 @@ function Homepage() {
       servicesIcon[0].style.animationName = "rotate0";
       servicesIcon[0].style.animationDuration = "0.5s";
 
-      // setTimeout(() => {
-        servicesIcon[0].style.rotate = "0deg"
-      // }, "400");
+      servicesIcon[0].style.rotate = "0deg"
 
       activeService = document.getElementById(serviceId);
       servicesIcon = activeService.getElementsByClassName('servicesIcon');
@@ -619,7 +617,18 @@ function Homepage() {
             <div id="testimonialContainerParent" className="flex w-[800%]" style={{
               transition: 'transform 0.5s ease-in-out'
             }}>
-                <div className="bg-[#8ADCFF] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                <div className="bg-[#8ADCFF] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] min-[700px]:w-[555px] w-[300px] text-left text-[16px] mr-[20px] testimonial">
+                  <div className="">
+                    Broward Plumbing Inc. was by far one of the best companies I’ve used for my plumbing needs. The call for scheduling was super easy unlike many other companies. Their availability was great, I did not have to wait at all. I was able to get someone at my house on the same day of the call... I recommend these people 10/10. 
+                  </div>
+                  <div className="mt-[20px]">
+                    <span className="font-semibold">Service used:</span> Toilet repair, waste disposal repair, leak investigation & repair, pipe repair.
+                  </div>
+                  <div className="text-[24px] font-semibold mt-[30px]">
+                    Brandon Revelo
+                  </div>
+                </div>
+                <div className="bg-[#FFDF73] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] min-[700px]:w-[555px] w-[300px] text-left text-[16px] mr-[20px] testimonial">
                   <div className="">
                     “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
                   </div>
@@ -630,37 +639,26 @@ function Homepage() {
                     Rain Hickey
                   </div>
                 </div>
-                <div className="bg-[#FFDF73] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                <div className="bg-[#E0FF88] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] min-[700px]:w-[555px] w-[300px] text-left text-[16px] mr-[20px] testimonial">
                   <div className="">
-                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
+                    "Our clogged toilet started backing up and we needed immediate plumbing assistance. We called Broward Plumbers as they offer 24/7 emergency plumbing services. They were reliable, knowledgeable and professional. They fixed our clogged toilet very quickly and even offered a cleanup service."
                   </div>
-                  <div className="mt-[20px]">
+                  <div className="mt-[20px] hidden">
                     <span className="font-semibold">Service used:</span> Toilet Repair
                   </div>
                   <div className="text-[24px] font-semibold mt-[30px]">
-                    Rain Hickey
+                    Amanda Leila
                   </div>
                 </div>
-                <div className="bg-[#E0FF88] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
+                <div className="bg-[#8ADCFF] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] min-[700px]:w-[555px] w-[300px] text-left text-[16px] mr-[20px] testimonial">
                   <div className="">
-                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
+                    "My experience with Broward Plumbers was an exceptional one. Their certified plumbers showed up at my house in Boca Raton, FL very quickly after my emergency plumbing call and immediately identified and fixed our water leakage issue. I would definitely recommend them to anyone that needs top quality professional plumbing work at very reasonable prices."
                   </div>
-                  <div className="mt-[20px]">
+                  <div className="mt-[20px] hidden">
                     <span className="font-semibold">Service used:</span> Toilet Repair
                   </div>
                   <div className="text-[24px] font-semibold mt-[30px]">
-                    Rain Hickey
-                  </div>
-                </div>
-                <div className="bg-[#8ADCFF] sm:px-[52px] sm:py-[40px] px-[30px] py-[30px] mt-[60px] rounded-[24px] w-[555px] text-left text-[16px] mr-[20px] testimonial">
-                  <div className="">
-                    “I came home from work, ready to start my vacation, to find my toilet kept running. I called one plumbing company but they had nobody to send. I called Broward plumbing and David promised me someone within 20 minutes. Omar arrived promptly. He was courteous and professional. My problem was fixed within 45 minutes of my call.”
-                  </div>
-                  <div className="mt-[20px]">
-                    <span className="font-semibold">Service used:</span> Toilet Repair
-                  </div>
-                  <div className="text-[24px] font-semibold mt-[30px]">
-                    Rain Hickey
+                    Michael Stewart
                   </div>
                 </div>
             </div>
@@ -733,7 +731,7 @@ function Homepage() {
 
       <div className="w-[100%] bg-[#091119] pb-[100px] mt-[50px] pt-[100px]">
         <div className="min-[1500px]:w-[1500px] w-[100%] mx-auto px-[20px] md:px-[50px] text-[#FFFFFF]">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-evenly items-center">
             <div className="">
               <div className="text-[40px] font-medium text-left leading-[54px]">Trusted by over 5000+ clients</div>
               <div className="font-normal mt-[40px] text-left">Fix it today and take time to pay and get benefited by our coupons and deals.</div>
@@ -745,7 +743,7 @@ function Homepage() {
               </div>
             </div>
             <div className="ml-[30px] hidden lg:block">
-              <img src={footerimage} />
+              <img src={footerimage} className="rounded-[24px] w-[400px] h-[391px]" />
             </div>
           </div>
         </div>
