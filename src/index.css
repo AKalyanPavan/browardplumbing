@@ -36,3 +36,13 @@ code {
   from {rotate: 180deg}
   to {rotate: 0deg}
 }
+
+@keyframes decreaseFontsize {
+  from {font-size: 16px; margin-bottom: 0px}
+  to {font-size: 12px; margin-bottom: 50px}
+}
+
+@keyframes increaseFontsize {
+  from {font-size: 12px; margin-bottom: 50px}
+  to {font-size: 16px; margin-bottom: 0px}
+}

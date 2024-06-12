@@ -212,6 +212,48 @@ function Homepage() {
     testimonialContainerParent.style.transform = transformValue;
   }
 
+  function onInputClicked(inputId) {
+    let inputDiv = document.getElementById(inputId);
+    let inputLabel = inputDiv.getElementsByTagName("label")[0];
+    let inputText = inputDiv.getElementsByTagName("input")[0];
+
+    inputLabel.style.animationName = "decreaseFontsize";
+    inputLabel.style.animationDuration = "0.2s";
+
+    inputDiv.classList.remove("border-[#c4c4c4]");
+    inputDiv.classList.remove("hover:border-[#000000]");
+    inputDiv.classList.add("border-[#377dff]");
+
+    setTimeout(function() {
+      inputLabel.classList.remove("text-[#677788]");
+      inputLabel.classList.add("text-[12px]");
+      inputLabel.classList.add("mb-[50px]");
+      inputLabel.classList.add("text-[#0064B1]");
+    }, 100);
+
+    inputText.focus();
+  }
+
+  function onInputFocusOut(inputId) {
+    let inputDiv = document.getElementById(inputId);
+    let inputLabel = inputDiv.getElementsByTagName("label")[0];
+    let inputText = inputDiv.getElementsByTagName("input")[0];
+
+    inputLabel.style.animationName = "increaseFontsize";
+    inputLabel.style.animationDuration = "0.2s";
+
+    inputDiv.classList.add("border-[#c4c4c4]");
+    inputDiv.classList.add("hover:border-[#000000]");
+    inputDiv.classList.remove("border-[#377dff]");
+
+    setTimeout(function() {
+      inputLabel.classList.add("text-[#677788]");
+      inputLabel.classList.remove("text-[12px]");
+      inputLabel.classList.remove("mb-[50px]");
+      inputLabel.classList.remove("text-[#0064B1]");
+    }, 100);
+  }
+
   useEffect(() => {
     let activeService = document.getElementById(activeServicesItem);
 
@@ -267,23 +309,26 @@ function Homepage() {
       </div>
 
       {/*Banner*/}
-      <div className="w-[100%] h-[80px] bg-[#000000] text-[#8e97a1] text-[14px] font-normal flex top-[0px] sticky z-[1]">
-        <div className="flex justify-between max-[1000px]:justify-end w-[1500px] mx-auto items-center md:px-[50px] px-[20px]">
+      <div className="w-[100%] h-[70px] bg-[#000000] text-[#8e97a1] text-[14px] font-normal flex top-[0px] sticky z-[1]">
+        <div className="flex justify-center min-[640px]:justify-end min-[1001px]:justify-between w-[1500px] mx-auto items-center md:px-[50px] px-[20px]">
           <div className="max-[1000px]:hidden">
             Currently Serving Broward County & Southern Florida Areas
           </div>
-          <div className="flex items-center">
-            <div className="flex items-center border-[solid] max-[768px]:border-[2px] border-[#C6F28E] rounded-[50%] p-[10px]">
-              <svg width="30" height="30" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span className="pl-[10px] max-[768px]:hidden">24 hour service</span>
-            </div>
-            <span className="pl-[10px] min-[769px]:hidden">24 hour service</span>
-            <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] mx-[20px] max-[768px]:hidden">
+          <div className="flex items-center sm:justify-center">
+            <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] mx-[20px] items-center sm:flex hidden cursor-pointer">
+              <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
+                <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               954-516-7777
             </div>
-            <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] max-[768px]:hidden">
+            <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] flex items-center cursor-pointer">
+              <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
+                <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               561-570-7777
             </div>
           </div>
@@ -321,7 +366,7 @@ function Homepage() {
               <div className="h-[2px] w-[100%] bg-[#0064B1] mt-[5px] hidden menuItemUnderline"></div>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center hidden">
             <div className="flex items-center bg-[#EBF3F9] px-[16px] py-[12px] rounded-[8px] cursor-pointer">
               <div>Location</div>
               <svg className="mt-[3px] ml-[10px]" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -385,11 +430,25 @@ function Homepage() {
                 </div>
               </div>
             </div>
-            <div className="w-max px-[32px] py-[16px] rounded-[8px] bg-[#0064B1] text-[#FFFFFF] font-medium cursor-pointer text-[16px]">
-              Schedule an appointment
-            </div>
-            <div className="w-max mt-[15px] text-[16px]">
-              or Call <span className="text-[#0064B1] font-bold cursor-pointer">954-516-7777</span>
+            <div className="w-[400px] max-[500px]:w-full">
+              <div id="fullName" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("fullName")}>
+                <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Full name</label>
+                <input className="outline-none mx-[10px] w-[100%]" onBlur={() => onInputFocusOut("fullName")} placeholder="" type="text" id="fname" name="fname" />
+              </div>
+              <div id="email" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("email")}>
+                <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Email</label>
+                <input className="outline-none mx-[10px] w-[100%]" onBlur={() => onInputFocusOut("email")} placeholder="" type="text" id="femail" name="femail" />
+              </div>
+              <div id="phoneNumber" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("phoneNumber")}>
+                <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Phone Number</label>
+                <input className="outline-none mx-[10px] w-[100%]" onBlur={() => onInputFocusOut("phoneNumber")} placeholder="" type="text" id="fphonenumber" name="fphonenumber" />
+              </div>
+              <div className="w-[100%] px-[32px] py-[16px] rounded-[8px] bg-[#0064B1] text-[#FFFFFF] font-medium cursor-pointer text-[16px]">
+                Schedule an appointment
+              </div>
+              <div className="w-max mt-[15px] text-[16px]">
+                or Call <span className="text-[#0064B1] font-bold cursor-pointer">954-516-7777</span>
+              </div>
             </div>
           </div>
           <div className="w-[80%] max-[1050px]:hidden">
@@ -743,7 +802,7 @@ function Homepage() {
               </div>
             </div>
             <div className="ml-[30px] hidden lg:block">
-              <img src={footerimage} className="rounded-[24px] w-[400px] h-[391px]" />
+              <img src={footerimage} className="rounded-[24px] w-[400px] min-w-[400px] h-[391px]" />
             </div>
           </div>
         </div>
