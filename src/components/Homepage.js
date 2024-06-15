@@ -433,17 +433,17 @@ function Homepage() {
             <div className="w-[400px] max-[500px]:w-full">
               <div id="fullName" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("fullName")}>
                 <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Full name</label>
-                <input className="outline-none mx-[10px] w-[100%]" onBlur={() => onInputFocusOut("fullName")} placeholder="" type="text" id="fname" name="fname" />
+                <input className="outline-none mx-[10px] w-[100%] centilio-input-full-name" onBlur={() => onInputFocusOut("fullName")} placeholder="" type="text" id="fname" name="fname" />
               </div>
               <div id="email" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("email")}>
                 <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Email</label>
-                <input className="outline-none mx-[10px] w-[100%]" onBlur={() => onInputFocusOut("email")} placeholder="" type="text" id="femail" name="femail" />
+                <input className="outline-none mx-[10px] w-[100%] centilio-input-email" onBlur={() => onInputFocusOut("email")} placeholder="" type="text" id="femail" name="femail" />
               </div>
               <div id="phoneNumber" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("phoneNumber")}>
                 <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Phone Number</label>
-                <input className="outline-none mx-[10px] w-[100%]" onBlur={() => onInputFocusOut("phoneNumber")} placeholder="" type="text" id="fphonenumber" name="fphonenumber" />
+                <input className="outline-none mx-[10px] w-[100%] centilio-input-mobile" onBlur={() => onInputFocusOut("phoneNumber")} placeholder="" type="text" id="fphonenumber" name="fphonenumber" />
               </div>
-              <div className="w-[100%] px-[32px] py-[16px] rounded-[8px] bg-[#0064B1] text-[#FFFFFF] font-medium cursor-pointer text-[16px]">
+              <div className="w-[100%] px-[32px] py-[16px] rounded-[8px] bg-[#0064B1] text-[#FFFFFF] font-medium cursor-pointer text-[16px] centilio-form-submit">
                 Schedule an appointment
               </div>
               <div className="w-max mt-[15px] text-[16px]">
