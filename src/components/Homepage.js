@@ -893,34 +893,3 @@ function Homepage() {
 }
 
 export default Homepage;
-
-
-
-
-// function onMenuItemClicked(tag){
-//     if (tag == '#home') {
-//       window.scrollTo({
-//           top: document.querySelector(tag).offsetTop - 200,
-//           left: 0,
-//           behavior: 'smooth'
-//         })
-//     } else if (tag == '#aboutus') {
-//       window.scrollTo({
-//           top: document.querySelector(tag).offsetTop- 100,
-//           left: 0,
-//           behavior: 'smooth'
-//       })
-//     } else if (tag == '#ourservices') {
-//       window.scrollTo({
-//           top: document.querySelector(tag).offsetTop - 100,
-//           left: 0,
-//           behavior: 'smooth'
-//       })
-//     } else if (tag == '#casestudies') {
-//       window.scrollTo({
-//           top: document.querySelector(tag).offsetTop - 100,
-//           left: 0,
-//           behavior: 'smooth'
-//       })
-//     }
-// }
