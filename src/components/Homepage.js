@@ -372,22 +372,26 @@ function Homepage() {
             Currently Serving Broward County & Southern Florida Areas
           </div>
           <div className="flex items-center sm:justify-center">
-            <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] mx-[20px] items-center sm:flex hidden cursor-pointer">
-              <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
-                <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <a href="tel:954-516-7777">
+              <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] mx-[20px] items-center sm:flex hidden cursor-pointer">
+                <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
+                  <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                954-516-7777
               </div>
-              954-516-7777
-            </div>
-            <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] flex items-center cursor-pointer">
-              <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
-                <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            </a>
+            <a href="tel:561-570-7777">
+              <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] flex items-center cursor-pointer">
+                <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
+                  <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.1778 16.42V19.42C21.1789 19.6985 21.1219 19.9742 21.0103 20.2293C20.8987 20.4845 20.7351 20.7136 20.5299 20.9019C20.3246 21.0901 20.0824 21.2335 19.8185 21.3227C19.5547 21.4119 19.2752 21.4451 18.9978 21.42C15.9206 21.0856 12.9648 20.0341 10.3678 18.35C7.95162 16.8147 5.90313 14.7662 4.36779 12.35C2.67777 9.7412 1.62603 6.77099 1.29779 3.68C1.2728 3.40347 1.30566 3.12476 1.39429 2.86162C1.48292 2.59849 1.62536 2.35669 1.81256 2.15162C1.99975 1.94655 2.22759 1.78271 2.48158 1.67052C2.73557 1.55833 3.01013 1.50026 3.28779 1.5H6.28779C6.7731 1.49522 7.24358 1.66708 7.61155 1.98353C7.97952 2.29999 8.21987 2.73945 8.28779 3.22C8.41441 4.18007 8.64924 5.12273 8.98779 6.03C9.12233 6.38792 9.15145 6.77691 9.0717 7.15088C8.99194 7.52485 8.80665 7.86811 8.53779 8.14L7.26779 9.41C8.69135 11.9135 10.7642 13.9864 13.2678 15.41L14.5378 14.14C14.8097 13.8711 15.1529 13.6858 15.5269 13.6061C15.9009 13.5263 16.2899 13.5555 16.6478 13.69C17.5551 14.0286 18.4977 14.2634 19.4578 14.39C19.9436 14.4585 20.3872 14.7032 20.7043 15.0775C21.0215 15.4518 21.19 15.9296 21.1778 16.42Z" stroke="#C6F28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                561-570-7777
               </div>
-              561-570-7777
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -513,7 +517,7 @@ function Homepage() {
                 Schedule an appointment
               </div>
               <div className="w-max mt-[15px] text-[16px]">
-                or Call <span className="text-[#0064B1] font-bold cursor-pointer">954-516-7777</span>
+                or Call <a href="tel:954-516-7777"><span className="text-[#0064B1] font-bold cursor-pointer">954-516-7777</span></a>
               </div>
             </div>
           </div>
@@ -657,7 +661,9 @@ function Homepage() {
               <li className="xl:w-[800px]">We'll get work with water leak detection, drain unclogging, sewer line repair, or any other plumbing service you need in Boca Raton, Fort Lauderdale, and throughout Broward County.</li>
             </ol>
             <div className="min-[600px]:flex block items-center">
-              <div className="bg-[#091119] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Call 954-516-7777</div>
+              <a href="tel:954-516-7777">
+                <div className="bg-[#091119] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Call 954-516-7777</div>
+              </a>
               <div className="flex items-center cursor-pointer min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]">
                 Schedule an Appointment
                 <svg className="mt-[2px] ml-[10px]" width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -863,7 +869,7 @@ function Homepage() {
               <div className="min-[600px]:flex block items-center mt-[50px]">
                 <div className="bg-[#0064B1] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Schedule an Appointment</div>
                 <div className="flex items-center min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]">
-                  Call <span className="cursor-pointer text-[#0064B1] ml-[10px]">954-516-7777</span>
+                  Call <a href="tel:954-516-7777"><span className="cursor-pointer text-[#0064B1] ml-[10px]">954-516-7777</span></a>
                 </div>
               </div>
             </div>
@@ -879,19 +885,3 @@ function Homepage() {
 }
 
 export default Homepage;
-
-
-// ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
-// email
-
-
-
-// ^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$
-// Phone Number
-
-
-
-
-
-
-
