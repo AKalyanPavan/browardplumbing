@@ -311,6 +311,14 @@ function Homepage() {
     
   }
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: document.querySelector("#section1").offsetTop - 200,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
+
   useEffect(() => {
     let activeService = document.getElementById(activeServicesItem);
 
@@ -447,7 +455,7 @@ function Homepage() {
       </div>
 
       {/*section 1*/}
-      <div className="mt-[50px] w-[100%]">
+      <div id="section1" className="mt-[50px] w-[100%]">
         <div className="min-[1500px]:w-[1500px] w-[100%] flex mx-auto px-[20px] md:px-[50px]">
           <div className="">
             <div className="hidden flex text-[#5E6B78] text-[14px] items-center leading-[21px] border-solid border-[1px] border-[#EBF3F9] px-[16px] py-[8px] rounded-[8px] w-max">
@@ -517,7 +525,7 @@ function Homepage() {
                 Schedule an appointment
               </div>
               <div className="w-max mt-[15px] text-[16px]">
-                or Call <a href="tel:954-516-7777"><span className="text-[#0064B1] font-bold cursor-pointer">954-516-7777</span></a>
+                or Call <a class="centilio-button-click-call" href="tel:954-516-7777"><span className="text-[#0064B1] font-bold cursor-pointer">954-516-7777</span></a>
               </div>
             </div>
           </div>
@@ -661,10 +669,10 @@ function Homepage() {
               <li className="xl:w-[800px]">We'll get work with water leak detection, drain unclogging, sewer line repair, or any other plumbing service you need in Boca Raton, Fort Lauderdale, and throughout Broward County.</li>
             </ol>
             <div className="min-[600px]:flex block items-center">
-              <a href="tel:954-516-7777">
+              <a class="centilio-button-click-call" href="tel:954-516-7777">
                 <div className="bg-[#091119] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Call 954-516-7777</div>
               </a>
-              <div className="flex items-center cursor-pointer min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]">
+              <div className="flex items-center cursor-pointer min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]" onClick={() => scrollToTop()}>
                 Schedule an Appointment
                 <svg className="mt-[2px] ml-[10px]" width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L6 5L1 1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -867,9 +875,9 @@ function Homepage() {
               <div className="text-[40px] font-medium text-left leading-[54px]">Trusted by over 5000+ clients</div>
               <div className="font-normal mt-[40px] text-left">Fix it today and take time to pay and get benefited by our coupons and deals.</div>
               <div className="min-[600px]:flex block items-center mt-[50px]">
-                <div className="bg-[#0064B1] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max">Schedule an Appointment</div>
+                <div className="bg-[#0064B1] cursor-pointer text-[#FFFFFF] px-[32px] py-[16px] rounded-[8px] font-medium text-[16px] w-max" onClick={() => scrollToTop()}>Schedule an Appointment</div>
                 <div className="flex items-center min-[600px]:ml-[30px] ml-[5px] text-[#FFFFFF] font-medium max-[600px]:mt-[30px]">
-                  Call <a href="tel:954-516-7777"><span className="cursor-pointer text-[#0064B1] ml-[10px]">954-516-7777</span></a>
+                  Call <a class="centilio-button-click-call" href="tel:954-516-7777"><span className="cursor-pointer text-[#0064B1] ml-[10px]">954-516-7777</span></a>
                 </div>
               </div>
             </div>
@@ -885,3 +893,34 @@ function Homepage() {
 }
 
 export default Homepage;
+
+
+
+
+// function onMenuItemClicked(tag){
+//     if (tag == '#home') {
+//       window.scrollTo({
+//           top: document.querySelector(tag).offsetTop - 200,
+//           left: 0,
+//           behavior: 'smooth'
+//         })
+//     } else if (tag == '#aboutus') {
+//       window.scrollTo({
+//           top: document.querySelector(tag).offsetTop- 100,
+//           left: 0,
+//           behavior: 'smooth'
+//       })
+//     } else if (tag == '#ourservices') {
+//       window.scrollTo({
+//           top: document.querySelector(tag).offsetTop - 100,
+//           left: 0,
+//           behavior: 'smooth'
+//       })
+//     } else if (tag == '#casestudies') {
+//       window.scrollTo({
+//           top: document.querySelector(tag).offsetTop - 100,
+//           left: 0,
+//           behavior: 'smooth'
+//       })
+//     }
+// }
