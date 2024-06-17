@@ -372,7 +372,7 @@ function Homepage() {
             Currently Serving Broward County & Southern Florida Areas
           </div>
           <div className="flex items-center sm:justify-center">
-            <a href="tel:954-516-7777">
+            <a class="centilio-button-click-call" href="tel:954-516-7777">
               <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] mx-[20px] items-center sm:flex hidden cursor-pointer">
                 <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
                   <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -382,7 +382,7 @@ function Homepage() {
                 954-516-7777
               </div>
             </a>
-            <a href="tel:561-570-7777">
+            <a class="centilio-button-click-call" href="tel:561-570-7777">
               <div className="border-[solid] border-[2px] border-[#C6F28E] text-[#C6F28E] px-[20px] py-[5px] rounded-[10px] flex items-center cursor-pointer">
                 <div className="flex items-center border-[solid] pr-[10px] py-[5px]">
                   <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
