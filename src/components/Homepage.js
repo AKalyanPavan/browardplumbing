@@ -14,9 +14,6 @@ function Homepage() {
   const [activeTestimonial, setActiveTestimonial] = useState(1);
   const [translateX, setTranslateX] = useState(0);
 
-  let emailregex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  let phoneregex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
-
   function onBurgerMenuClicked(){
     document.querySelector("#modal").style.animationName = "slideIn";
     setModalDisplay("");
@@ -227,32 +224,6 @@ function Homepage() {
     inputDiv.classList.remove("hover:border-[#000000]");
     inputDiv.classList.add("border-[#377dff]");
 
-    switch(inputId) {
-      case "fullName":
-        let errorName = document.getElementById("errorName");
-
-        if(!errorName.classList.contains("invisible")) {
-          errorName.classList.add("invisible");
-        }
-        break;
-      case "email":
-        let errorEmail = document.getElementById("errorEmail");
-
-        if(!errorEmail.classList.contains("invisible")) {
-          errorEmail.classList.add("invisible");
-        }
-        break;
-      case "phoneNumber":
-        let errorPhonenumber = document.getElementById("errorPhonenumber");
-
-        if(!errorPhonenumber.classList.contains("invisible")) {
-          errorPhonenumber.classList.add("invisible");
-        }
-        break;
-      default:
-        return;
-    }
-
     setTimeout(function() {
       inputLabel.classList.remove("text-[#677788]");
       inputLabel.classList.add("text-[12px]");
@@ -268,47 +239,19 @@ function Homepage() {
     let inputLabel = inputDiv.getElementsByTagName("label")[0];
     let inputText = inputDiv.getElementsByTagName("input")[0];
 
+    inputLabel.style.animationName = "increaseFontsize";
+    inputLabel.style.animationDuration = "0.2s";
+
     inputDiv.classList.add("border-[#c4c4c4]");
     inputDiv.classList.add("hover:border-[#000000]");
     inputDiv.classList.remove("border-[#377dff]");
 
-    if (!inputText.value.trim()) {
-
-      inputLabel.style.animationName = "increaseFontsize";
-      inputLabel.style.animationDuration = "0.2s";
-
-      setTimeout(function() {
-        inputLabel.classList.add("text-[#677788]");
-        inputLabel.classList.remove("text-[12px]");
-        inputLabel.classList.remove("mb-[50px]");
-        inputLabel.classList.remove("text-[#0064B1]");
-      }, 100);
-
-    }
-
-  }
-
-  function validateInput() {
-    let errorName = document.getElementById("errorName");
-    let errorEmail = document.getElementById("errorEmail");
-    let errorPhonenumber = document.getElementById("errorPhonenumber");
-
-    let fname = document.getElementById("fname").value;
-    let femail = document.getElementById("femail").value;
-    let fphonenumber = document.getElementById("fphonenumber").value;
-
-    if(!fname.trim()) {
-      errorName.classList.remove("invisible");
-    }
-
-    if(!emailregex.test(femail)) {
-      errorEmail.classList.remove("invisible");
-    }
-
-    if(!phoneregex.test(fphonenumber)) {
-      errorPhonenumber.classList.remove("invisible");
-    }
-    
+    setTimeout(function() {
+      inputLabel.classList.add("text-[#677788]");
+      inputLabel.classList.remove("text-[12px]");
+      inputLabel.classList.remove("mb-[50px]");
+      inputLabel.classList.remove("text-[#0064B1]");
+    }, 100);
   }
 
   useEffect(() => {
@@ -488,28 +431,19 @@ function Homepage() {
               </div>
             </div>
             <div className="w-[400px] max-[500px]:w-full">
-              <div className="mb-[30px]">
-                <div id="fullName" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center hover:border-[#000000]" onClick={() => onInputClicked("fullName")}>
-                  <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Full name</label>
-                  <input className="outline-none mx-[10px] w-[100%] centilio-input-full-name" onBlur={() => onInputFocusOut("fullName")} placeholder="" type="text" id="fname" name="fname" />
-                </div>
-                <div className="text-left mt-[2px] text-[12px] text-[#BB1010] invisible" id="errorName">Full name Cannot be Empty</div>
+              <div id="fullName" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("fullName")}>
+                <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Full name</label>
+                <input className="outline-none mx-[10px] w-[100%] centilio-input-full-name" onBlur={() => onInputFocusOut("fullName")} placeholder="" type="text" id="fname" name="fname" />
               </div>
-              <div className="mb-[30px]">
-                <div id="email" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center hover:border-[#000000]" onClick={() => onInputClicked("email")}>
-                  <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Email</label>
-                  <input className="outline-none mx-[10px] w-[100%] centilio-input-email" onBlur={() => onInputFocusOut("email")} placeholder="" type="text" id="femail" name="femail" />
-                </div>
-                <div className="text-left mt-[2px] text-[12px] text-[#BB1010] invisible" id="errorEmail">Please provide valid email</div>
+              <div id="email" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("email")}>
+                <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Email</label>
+                <input className="outline-none mx-[10px] w-[100%] centilio-input-email" onBlur={() => onInputFocusOut("email")} placeholder="" type="text" id="femail" name="femail" />
               </div>
-              <div className="mb-[30px]">
-                <div id="phoneNumber" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center hover:border-[#000000]" onClick={() => onInputClicked("phoneNumber")}>
-                  <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Phone Number</label>
-                  <input className="outline-none mx-[10px] w-[100%] centilio-input-mobile" onBlur={() => onInputFocusOut("phoneNumber")} placeholder="" type="text" id="fphonenumber" name="fphonenumber" />
-                </div>
-                <div className="text-left mt-[2px] text-[12px] text-[#BB1010] invisible" id="errorPhonenumber">Please provide valid phone number</div>
+              <div id="phoneNumber" className="flex border-solid border-[1.5px] border-[#c4c4c4] rounded-[5px] h-[50px] items-center mb-[30px] hover:border-[#000000]" onClick={() => onInputClicked("phoneNumber")}>
+                <label className="w-max ml-[5px] absolute text-[#677788] cursor-text bg-[#FFFFFF] px-[10px]">Phone Number</label>
+                <input className="outline-none mx-[10px] w-[100%] centilio-input-mobile" onBlur={() => onInputFocusOut("phoneNumber")} placeholder="" type="text" id="fphonenumber" name="fphonenumber" />
               </div>
-              <div className="w-[100%] px-[32px] py-[16px] rounded-[8px] bg-[#0064B1] text-[#FFFFFF] font-medium cursor-pointer text-[16px] centilio-form-submit" onClick={() => validateInput()}>
+              <div className="w-[100%] px-[32px] py-[16px] rounded-[8px] bg-[#0064B1] text-[#FFFFFF] font-medium cursor-pointer text-[16px] centilio-form-submit">
                 Schedule an appointment
               </div>
               <div className="w-max mt-[15px] text-[16px]">
@@ -879,19 +813,3 @@ function Homepage() {
 }
 
 export default Homepage;
-
-
-// ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
-// email
-
-
-
-// ^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$
-// Phone Number
-
-
-
-
-
-
-
