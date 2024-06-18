@@ -293,20 +293,44 @@ function Homepage() {
     let errorEmail = document.getElementById("errorEmail");
     let errorPhonenumber = document.getElementById("errorPhonenumber");
 
-    let fname = document.getElementById("fname").value;
-    let femail = document.getElementById("femail").value;
-    let fphonenumber = document.getElementById("fphonenumber").value;
+    let fname = document.getElementById("fname");
+    let femail = document.getElementById("femail");
+    let fphonenumber = document.getElementById("fphonenumber");
 
-    if(!fname.trim()) {
+    let isError = false;
+
+    if(!fname.value.trim()) {
       errorName.classList.remove("invisible");
+      isError = true;
     }
 
-    if(!emailregex.test(femail)) {
+    if(!emailregex.test(femail.value)) {
       errorEmail.classList.remove("invisible");
+      isError = true;
     }
 
-    if(!phoneregex.test(fphonenumber)) {
+    if(!phoneregex.test(fphonenumber.value)) {
       errorPhonenumber.classList.remove("invisible");
+      isError = true;
+    }
+
+    if(!isError){
+      
+      // Making input values empty
+      fname.value = "";
+      onInputFocusOut("fullName");
+
+      femail.value = "";
+      onInputFocusOut("email");
+
+      fphonenumber.value = "";
+      onInputFocusOut("phoneNumber");
+
+      // Opening thank-you modal
+      openThankYouModal();
+
+      // Closing thank-you modal
+      setTimeout(closeThankYouModal, 5000);
     }
     
   }
@@ -317,6 +341,20 @@ function Homepage() {
       left: 0,
       behavior: 'smooth'
     })
+  }
+
+  function closeThankYouModal() {
+    let thankYouModal = document.getElementById("thankYouModal");
+    if(!thankYouModal.classList.contains("hidden")){
+      thankYouModal.classList.add("hidden");
+    }
+  }
+
+  function openThankYouModal() {
+    let thankYouModal = document.getElementById("thankYouModal");
+    if(thankYouModal.classList.contains("hidden")){
+      thankYouModal.classList.remove("hidden");
+    }
   }
 
   useEffect(() => {
@@ -337,6 +375,25 @@ function Homepage() {
 
   return (
     <div className="">
+
+      {/*"Thank You" Modal*/}
+      <div id="thankYouModal" className="w-[100%] h-[100%] bg-[#7f808080] fixed z-[4] hidden">
+        <div style={{
+              transform: "translate(-50%, -50%)"
+            }}
+          className="text-[#166434] fixed bg-[#EFFDF4] top-[50%] left-[50%] py-[30px] px-[10px] min-[500px]:px-[30px] min-[700px]:px-[50px] min-[1000px]:px-[100px] rounded-[10px] z-[5] leading-[35px] min-w-[245px]">
+            <div className="bg-[#49DE80] w-max px-[20px] py-[23px] rounded-[50%] mx-auto">
+              <svg width="40" height="32" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.01587 1.77777L3.65079 6.22222L1.66667 4.20201" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div className="text-[30px] font-semibold my-[20px]">Thank You!</div>
+            <div className="text-[#1A803E]">We'll reach You Out Soon!</div>
+
+            <div className="bg-[#F87171] text-[#FFFFFF] cursor-pointer rounded-[5px] my-[20px] w-max mx-auto px-[20px] font-medium" onClick={() => closeThankYouModal()}>Close</div>
+
+        </div>
+      </div>
 
       {/*Modal*/}
       <div 
